@@ -1,0 +1,171 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LottieAnimation from "../components/LottieAnimation";
+import Card from "../components/Card.astro";
+import homeAnimationData from "../../public/animations/home1.json";
+import paintAnimation from "../../public/animations/paint.json";
+import Header from "../components/Header.astro";
+import FloatingButton from "../components/FloatingButton";
+import HowItWorks from "../components/HowItWorks.astro";
+import Footer from "../components/Footer.astro";
+import About from "../components/About.astro";
+let number = "50766592072";
+---
+
+<Layout title="Welcome to Astro.">
+  <FloatingButton
+    route="https://wa.me/50766592072?Hola%20quiero%20una%20cotizacion"
+    client:load
+  >
+    <img
+      class="grayscale hover:grayscale-0"
+      src="../../public/ws.png"
+      alt="icon whatsApp"
+    />
+  </FloatingButton>
+  <div class="bg-white">
+    <!-- Header -->
+    <Header />
+    <main class="isolate">
+      <!-- Hero section -->
+      <div class="relative">
+        <div
+          class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          aria-hidden="true"
+        >
+          <div
+            class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#fe2b06] to-[#ec6f59] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+          >
+          </div>
+        </div>
+        <div class="pt-24 sm:pt-32" id="home">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl text-center">
+              <h1
+                class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
+              >
+                +200 servicios para hacerte la vida más fácil
+              </h1>
+              <p
+                class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8"
+              >
+                La solución rápida y confiable para ayudarte con todas las
+                tareas del hogar.
+              </p>
+              <div class="mt-10 flex items-center justify-center gap-x-6">
+                <a
+                  href="https://wa.me/50766592072?Hola%20quiero%20una%20cotizacion"
+                  target="_blank"
+                  class="rounded-md bg-contrast px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-secondary hover:scale-105 duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >Pide un presupuesto</a
+                >
+              </div>
+            </div>
+            <div class="mt-4 flow-root sm:mt-4">
+              <div
+                class="rounded-xl flex justify-center lg:-m-4 lg:rounded-2xl lg:p-4"
+              >
+                <LottieAnimation
+                  animationData={homeAnimationData}
+                  width="600px"
+                  height="500px"
+                  client:load
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          aria-hidden="true"
+        >
+          <div
+            class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#fe2b06] to-[#ec6f59] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+          >
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo cloud -->
+
+      <!-- Feature section -->
+      <div class="mx-auto max-w-7xl px-6 sm:mt-10 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:text-center">
+          <h2 class="text-base/7 font-semibold text-primary" id="service">
+            Servicios Ofrecidos
+          </h2>
+          <p
+            class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
+          >
+            ¿Qué puedes pedir en <span class="text-primary">Rappifix</span>?
+          </p>
+          <p class="mt-6 text-lg/8 text-gray-600 text-balance">
+            Nuestros técnicos están disponibles para atender tus necesidades de
+            manera rápida y eficiente, asegurando resultados de calidad en cada
+            trabajo que realizamos
+          </p>
+        </div>
+        <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+          <div
+            class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
+          >
+            <Card
+              title="PLOMERÍA"
+              url="https://wa.me/50766592072?text=Servicio%20de%20plomeria"
+              info="WhatsApp"
+              body="Servicio de plomería disponible 24/7 para atender tus emergencias y solucionar problemas de llaves, lavamanos, inodoros y desagües de manera rápida y efectiva."
+            />
+
+            <Card
+              title="ELECTRICIDAD"
+              url="https://wa.me/50766592072?text=Servicio%20de%20electricidad"
+              info="WhatsApp"
+              body="Electricistas certificados y calificados para realizar instalaciones y reparaciones eléctricas con total seguridad y calidad."
+            />
+
+            <Card
+              title="MUEBLES"
+              url="https://wa.me/50766592072?text=Servicio%20de%20muebles"
+              info="WhatsApp"
+              body="Diseño y fabricación de muebles personalizados, desde muebles aéreos de cocina hasta centros de entretenimiento para tu hogar, con una red confiable de ebanistas."
+            />
+
+            <Card
+              title="PINTURA Y MÁS"
+              url="https://wa.me/50766592072?text=Servicio%20de%20Pintura"
+              info="WhatsApp"
+              body="Servicios de pintura, remodelación y decoración para darle a tu hogar el estilo que siempre has querido, con acabados profesionales y duraderos."
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial section -->
+      <div class="mx-auto max-w-7xl mt-10 sm:px-6 lg:px-8" id="how">
+        <div
+          class="rounded-xl flex flex-col sm:flex-row sm:justify-center items-center lg:-m-4 lg:rounded-2xl lg:p-4"
+        >
+          <LottieAnimation
+            animationData={paintAnimation}
+            width="300px"
+            height="400px"
+            client:visible
+          />
+          <div class="mx-auto max-w-2xl sm:mx-0 lg:text-center">
+            <p
+              class="mt-2 text-pretty text-center sm:text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
+            >
+              ¿Como funciona <span class="text-primary">Rappifix</span>?
+            </p>
+            <p class="mt-6 text-lg/8 text-gray-600 text-balance"></p>
+          </div>
+        </div>
+        <HowItWorks />
+      </div>
+      <About />
+      <Footer />
+    </main>
+  </div>
+</Layout>

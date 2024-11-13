@@ -1,0 +1,39 @@
+---
+interface Props {
+  title: string;
+  body: string;
+  info: string;
+  url: string;
+}
+import LottieAnimation from "./LottieAnimation";
+import iconTools from "../../public/animations/icontools.json";
+const { title, body, info, url } = Astro.props;
+---
+
+<div
+  class="relative pl-16 hover:scale-105 duration-200 flex flex-col justify-evenly"
+>
+  <div class="text-base/7 font-semibold text-gray-900">
+    <div
+      class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg"
+    >
+      <LottieAnimation
+        animationData={iconTools}
+        height="50px"
+        width="50px"
+        client:visible
+      />
+    </div>
+    {title}
+  </div>
+  <div class="mt-2 text-base/7 text-gray-600">{body}</div>
+  <div class="h-2/5 flex items-end">
+    <a
+      href={url}
+      target="_blank"
+      class="rounded bg-contrast px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-primary hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+    >
+      {info}
+    </a>
+  </div>
+</div>
