@@ -12,7 +12,8 @@
       <button
         type="button"
         class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-        onclick="toggleMenu()"
+        id="menuToggle"
+        onclick=""
       >
         <span class="sr-only">Open main menu</span>
         <svg
@@ -62,16 +63,15 @@
       <div class="flex items-center justify-between">
         <a href="#" class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img
-            class="h-8 w-auto"
-            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-            alt=""
-          />
+          <div class="w-32">
+            <img src="/Rappifix.svg" alt="icon rappifix"/>
+          </div>
         </a>
         <button
           type="button"
-          class="-m-2.5 rounded-md p-2.5 text-gray-700"
-          onclick="toggleMenu()"
+          class="-m-2.5 rounded-md p-2.5 text-gray-700 menuToggle"
+          id="menuClose"
+          onclick=""
         >
           <span class="sr-only">Close menu</span>
           <svg
@@ -91,35 +91,36 @@
         </button>
       </div>
       <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10">
+        <div class="-my-6 divide-y divide-gray-500/10 pl-5">
           <div class="space-y-2 py-6">
             <a
-              href="#"
+              href="#home"
               class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Product</a
+              >Inicio</a
             >
             <a
-              href="#"
+              href="#service"
               class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Features</a
+              >Servicios</a
             >
             <a
-              href="#"
+              href="#how"
               class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Marketplace</a
+              >Como funciona</a
             >
             <a
-              href="#"
+              href="#social"
               class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Company</a
+              >Sobre nosotros</a
             >
           </div>
           <div class="py-6">
             <a
-              href="#"
-              class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Log in</a
-            >
+            href="https://wa.me/50766592072?Hola%20quiero%20una%20cotizacion"
+            target="_blank"
+            class="text-sm/6 font-semibold text-contrast"
+            >Contactanos<span aria-hidden="true">&rarr;</span></a
+           >
           </div>
         </div>
       </div>
