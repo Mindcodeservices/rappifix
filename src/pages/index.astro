@@ -3,12 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import LottieAnimation from "../components/LottieAnimation";
 import Card from "../components/Card.astro";
 import homeAnimationData from "../../public/animations/home1.json";
+import painted from "../../public/animations/painted.json";
 import paintAnimation from "../../public/animations/paint.json";
+import closet from "../../public/animations/closet.json";
+import plumber from "../../public/animations/plumber.json";
+import lamp from "../../public/animations/lamp.json";
 import Header from "../components/Header.astro";
 import FloatingButton from "../components/FloatingButton";
 import HowItWorks from "../components/HowItWorks.astro";
 import Footer from "../components/Footer.astro";
 import About from "../components/About.astro";
+import CallToAction from "../components/CallToAction.astro";
 let number = "50766592072";
 ---
 
@@ -53,14 +58,7 @@ let number = "50766592072";
                 La solución rápida y confiable para ayudarte con todas las
                 tareas del hogar.
               </p>
-              <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="https://wa.me/50766592072?Hola%20quiero%20una%20cotizacion"
-                  target="_blank"
-                  class="rounded-md bg-contrast px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-secondary hover:scale-105 duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Pide un presupuesto</a
-                >
-              </div>
+              <CallToAction/>
             </div>
             <div class="mt-4 flow-root sm:mt-4">
               <div
@@ -87,9 +85,6 @@ let number = "50766592072";
           </div>
         </div>
       </div>
-
-      <!-- Logo cloud -->
-
       <!-- Feature section -->
       <div class="mx-auto max-w-7xl px-6 sm:mt-10 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
@@ -112,6 +107,7 @@ let number = "50766592072";
             class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
           >
             <Card
+              icon={plumber}
               title="PLOMERÍA"
               url="https://wa.me/50766592072?text=Servicio%20de%20plomeria"
               info="WhatsApp"
@@ -119,6 +115,7 @@ let number = "50766592072";
             />
 
             <Card
+            icon={lamp}
               title="ELECTRICIDAD"
               url="https://wa.me/50766592072?text=Servicio%20de%20electricidad"
               info="WhatsApp"
@@ -126,6 +123,7 @@ let number = "50766592072";
             />
 
             <Card
+              icon={closet}
               title="MUEBLES"
               url="https://wa.me/50766592072?text=Servicio%20de%20muebles"
               info="WhatsApp"
@@ -133,6 +131,7 @@ let number = "50766592072";
             />
 
             <Card
+              icon={painted}
               title="PINTURA Y MÁS"
               url="https://wa.me/50766592072?text=Servicio%20de%20Pintura"
               info="WhatsApp"

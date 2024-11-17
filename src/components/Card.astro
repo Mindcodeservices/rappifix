@@ -4,10 +4,11 @@ interface Props {
   body: string;
   info: string;
   url: string;
+  icon:object;
 }
 import LottieAnimation from "./LottieAnimation";
 import iconTools from "../../public/animations/icontools.json";
-const { title, body, info, url } = Astro.props;
+const { title, body, info, url,icon } = Astro.props;
 ---
 
 <div
@@ -18,7 +19,7 @@ const { title, body, info, url } = Astro.props;
       class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg"
     >
       <LottieAnimation
-        animationData={iconTools}
+        animationData={icon}
         height="50px"
         width="50px"
         client:visible
