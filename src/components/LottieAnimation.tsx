@@ -32,7 +32,6 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
         animationData,
       });
     }
-
     return () => {
       animationInstance?.destroy(); // Limpia la animación cuando se desmonta el componente
     };
