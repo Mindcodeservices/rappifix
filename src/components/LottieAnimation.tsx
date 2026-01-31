@@ -1,6 +1,6 @@
 // components/LottieAnimation.tsx
 import React, { useEffect, useRef } from 'react';
-import lottie from 'lottie-web';
+
 import type { AnimationItem } from 'lottie-web'
 
 interface LottieAnimationProps {
@@ -19,28 +19,47 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
   height = "100%",
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  let animationInstance: AnimationItem | null = null;
+  const animationInstanceRef = useRef<AnimationItem | null>(null);
 
   useEffect(() => {
-    console.log("animationData:", animationData); // Verifica que esto muestre el JSON correctamente
-    if (containerRef.current) {
-      animationInstance = lottie.loadAnimation({
-        container: containerRef.current,
-        renderer: 'svg',
-        loop,
-        autoplay,
-        animationData,
-      });
-    }
+    let isMounted = true;
+
+    const loadLottie = async () => {
+      try {
+        const lottieModule = await import('lottie-web');
+        const lottie = lottieModule.default;
+
+        if (containerRef.current && isMounted) {
+          // Destroy previous instance if it exists
+          if (animationInstanceRef.current) {
+            animationInstanceRef.current.destroy();
+          }
+
+          animationInstanceRef.current = lottie.loadAnimation({
+            container: containerRef.current,
+            renderer: 'svg',
+            loop,
+            autoplay,
+            animationData,
+          });
+        }
+      } catch (error) {
+        console.error("Error loading lottie-web:", error);
+      }
+    };
+
+    loadLottie();
+
     return () => {
-      animationInstance?.destroy(); // Limpia la animación cuando se desmonta el componente
+      isMounted = false;
+      animationInstanceRef.current?.destroy();
     };
   }, [animationData, loop, autoplay]);
 
   return (
     <div
       ref={containerRef}
-      style={{ width, height}}
+      style={{ width, height }}
       className="lottie-animation"
     />
   );

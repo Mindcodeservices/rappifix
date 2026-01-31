@@ -14,12 +14,12 @@ import HowItWorks from "../components/HowItWorks.astro";
 import Footer from "../components/Footer.astro";
 import About from "../components/About.astro";
 import CallToAction from "../components/CallToAction.astro";
-let number = "50768541945";
+let number = "50763034602";
 ---
 
 <Layout title="Welcome to Astro.">
   <FloatingButton
-    route="https://wa.me/50768541945?text=Hola%20quiero%20una%20cotización"
+    route="https://wa.me/50763034602?text=Hola%20quiero%20una%20cotización"
     client:load
   >
     <img
@@ -50,7 +50,8 @@ let number = "50768541945";
               <h1
                 class="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
               >
-              <span class="text-primary">Pide</span> +200 servicios para hacerte la vida más fácil
+                <span class="text-primary">Pide</span> +200 servicios para hacerte
+                la vida más fácil
               </h1>
               <p
                 class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8"
@@ -58,7 +59,7 @@ let number = "50768541945";
                 La solución rápida y confiable para ayudarte con todas las
                 tareas del hogar.
               </p>
-              <CallToAction/>
+              <CallToAction />
             </div>
             <div class="mt-4 flow-root sm:mt-4">
               <div
@@ -94,7 +95,7 @@ let number = "50768541945";
           <p
             class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
           >
-            ¿Qué puedes pedir en <span class="text-primary">Rappifix</span>?
+            ¿Qué puedes pedir en <span class="text-primary">Contactiza</span>?
           </p>
           <p class="mt-6 text-lg/8 text-gray-600 text-balance">
             Nuestros técnicos están disponibles para atender tus necesidades de
@@ -109,15 +110,15 @@ let number = "50768541945";
             <Card
               icon={plumber}
               title="PLOMERÍA"
-              url="https://wa.me/50768541945?text=Servicio%20de%20plomeria"
+              url="https://wa.me/50763034602?text=Servicio%20de%20plomeria"
               info="WhatsApp"
               body="Servicio de plomería disponible 24/7 para atender tus emergencias y solucionar problemas de llaves, lavamanos, inodoros y desagües de manera rápida y efectiva."
             />
 
             <Card
-            icon={lamp}
+              icon={lamp}
               title="ELECTRICIDAD"
-              url="https://wa.me/50768541945?text=Servicio%20de%20electricidad"
+              url="https://wa.me/50763034602?text=Servicio%20de%20electricidad"
               info="WhatsApp"
               body="Electricistas certificados y calificados para realizar instalaciones y reparaciones eléctricas con total seguridad y calidad."
             />
@@ -125,7 +126,7 @@ let number = "50768541945";
             <Card
               icon={closet}
               title="MUEBLES"
-              url="https://wa.me/50768541945?text=Servicio%20de%20muebles"
+              url="https://wa.me/50763034602?text=Servicio%20de%20muebles"
               info="WhatsApp"
               body="Diseño y fabricación de muebles personalizados, desde muebles aéreos de cocina hasta centros de entretenimiento para tu hogar, con una red confiable de ebanistas."
             />
@@ -133,7 +134,7 @@ let number = "50768541945";
             <Card
               icon={painted}
               title="PINTURA Y MÁS"
-              url="https://wa.me/50768541945?text=Servicio%20de%20Pintura"
+              url="https://wa.me/50763034602?text=Servicio%20de%20Pintura"
               info="WhatsApp"
               body="Servicios de pintura, remodelación y decoración para darle a tu hogar el estilo que siempre has querido, con acabados profesionales y duraderos."
             />
@@ -156,9 +157,13 @@ let number = "50768541945";
             <p
               class="mt-2 text-pretty text-center sm:text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance"
             >
-              ¿Como funciona <span class="text-primary">Rappifix</span>?
+              ¿Como funciona <span class="text-primary">Contactiza</span>?
             </p>
-            <p class="mt-6 text-lg/8 text-gray-600 text-balance text-center">Pide cualquier servicio que necesites en <span class="text-primary">3 pasos</span></p>
+            <p class="mt-6 text-lg/8 text-gray-600 text-balance text-center">
+              Pide cualquier servicio que necesites en <span
+                class="text-primary">3 pasos</span
+              >
+            </p>
           </div>
         </div>
         <HowItWorks />

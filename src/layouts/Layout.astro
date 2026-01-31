@@ -10,53 +10,76 @@ const { title } = Astro.props;
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Rappifix - Soluciones rápidas y confiables para tareas del hogar. Desde plomería hasta reparaciones eléctricas, estamos aquí para ayudarte." />
+		<meta
+			name="description"
+			content="Contactiza - Soluciones rápidas y confiables para tareas del hogar. Desde plomería hasta reparaciones eléctricas, estamos aquí para ayudarte."
+		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- Título optimizado con palabras clave -->
-		<title>Rappifix | Soluciones rápidas para tus tareas del hogar</title>
+		<title>Contactiza | Soluciones rápidas para tus tareas del hogar</title>
 		<!-- Open Graph meta tags para redes sociales -->
-		<meta property="og:title" content="Rappifix | Soluciones rápidas para tus tareas del hogar" />
-		<meta property="og:description" content="Confía en Rappifix para resolver tus necesidades de plomería, electricidad, y más. Personal especializado disponible 24/7 para ayudarte." />
-		<meta property="og:image" content="https://rappifix.netlify.app/rappifix.png" />
-		<meta property="og:url" content="https://rappifix.com" />
+		<meta
+			property="og:title"
+			content="Contactiza | Soluciones rápidas para tus tareas del hogar"
+		/>
+		<meta
+			property="og:description"
+			content="Confía en Contactiza para resolver tus necesidades de plomería, electricidad, y más. Personal especializado disponible 24/7 para ayudarte."
+		/>
+		<meta
+			property="og:image"
+			content="https://rappifix.netlify.app/contactiza.png"
+		/>
+		<meta property="og:url" content="https://contactiza.com" />
 		<meta property="og:type" content="website" />
 		<!-- Twitter Card meta tags -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Rappifix | Soluciones rápidas para tus tareas del hogar" />
-		<meta name="twitter:description" content="Confía en Rappifix para resolver tus necesidades de plomería, electricidad, y más. Personal especializado disponible 24/7 para ayudarte." />
-		<meta name="twitter:image" content="https://rappifix.netlify.app/rappifix.png" />
+		<meta
+			name="twitter:title"
+			content="Contactiza | Soluciones rápidas para tus tareas del hogar"
+		/>
+		<meta
+			name="twitter:description"
+			content="Confía en Contactiza para resolver tus necesidades de plomería, electricidad, y más. Personal especializado disponible 24/7 para ayudarte."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://rappifix.netlify.app/contactiza.png"
+		/>
 		<!-- Favicon -->
-		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<link rel="icon" type="image/png" href="/contactiza.png" />
 		<!-- Canonical URL -->
-		<link rel="canonical" href="https://rappifix.com" />
+		<link rel="canonical" href="https://contactiza.com" />
 		<!-- Meta Robots -->
 		<meta name="robots" content="index, follow" />
 		<!-- Meta Keywords -->
-		<meta name="keywords" content="Rappifix, tareas del hogar, plomería, electricidad, reparaciones, servicios domésticos" />
+		<meta
+			name="keywords"
+			content="Contactiza, tareas del hogar, plomería, electricidad, reparaciones, servicios domésticos"
+		/>
 		<!-- Datos estructurados para SEO (Schema.org) -->
 		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "Rappifix",
-			"url": "https://rappifix.com",
-			"logo": "https://example.com/images/Rappifix.svg",
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"telephone": "+1-800-555-5555",
-				"contactType": "Customer Service",
-				"areaServed": "Panama",
-				"availableLanguage": ["Spanish", "English"]
-			},
-			"sameAs": [
-				"https://www.facebook.com/rappifix",
-				"https://www.instagram.com/rappifix"
-			]
-		}
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "Contactiza",
+				"url": "https://contactiza.com",
+				"logo": "https://example.com/images/contactiza.png",
+				"contactPoint": {
+					"@type": "ContactPoint",
+					"telephone": "+1-800-555-5555",
+					"contactType": "Customer Service",
+					"areaServed": "Panama",
+					"availableLanguage": ["Spanish", "English"]
+				},
+				"sameAs": [
+					"https://www.facebook.com/contactiza",
+					"https://www.instagram.com/contactiza"
+				]
+			}
 		</script>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
-
