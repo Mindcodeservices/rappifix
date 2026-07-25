@@ -17,7 +17,7 @@ const FloatingButton: React.FC<FloatingButtonProps> = ({
     <button
       onClick={handleClick}
       aria-label="Abrir chat de WhatsApp"
-      className={`${position} bottom-5 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full shadow-lg focus:outline-none`}
+      className={`${position} bottom-5 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full shadow-lg focus:outline-hidden`}
     >
       {children}
     </button>
