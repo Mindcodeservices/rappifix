@@ -102,21 +102,18 @@
 	}
 
 	/* Conversación del hero: ciclo de 14 s */
-	.chat-step {
-		animation: 14s ease infinite both;
-	}
-	.chat-step--1 { animation-name: chat-1; }
-	.chat-step--2 { animation-name: chat-2; }
-	.chat-step--3 { animation-name: chat-3; }
-	.chat-step--4 { animation-name: chat-4; }
-	.chat-step--5 { animation-name: chat-5; }
+	/* El shorthand va completo en cada clase: sin nombre, el minificador lo reduce a `animation: none` */
+	.chat-step--1 { animation: chat-1 14s ease infinite both; }
+	.chat-step--2 { animation: chat-2 14s ease infinite both; }
+	.chat-step--3 { animation: chat-3 14s ease infinite both; }
+	.chat-step--4 { animation: chat-4 14s ease infinite both; }
+	.chat-step--5 { animation: chat-5 14s ease infinite both; }
 
 	.chat-typing {
 		display: flex;
-		animation: 14s ease infinite both;
 	}
-	.chat-typing--1 { animation-name: typing-1; }
-	.chat-typing--2 { animation-name: typing-2; }
+	.chat-typing--1 { animation: typing-1 14s ease infinite both; }
+	.chat-typing--2 { animation: typing-2 14s ease infinite both; }
 
 	.chat-typing i {
 		animation: typing-dot 1s ease-in-out infinite;
