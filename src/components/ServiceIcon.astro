@@ -1,0 +1,86 @@
+---
+export type ServiceIconName = "plumbing" | "electricity" | "furniture" | "paint";
+
+interface Props {
+  name: ServiceIconName;
+}
+
+const { name } = Astro.props;
+---
+
+<svg
+  class="service-icon size-16"
+  viewBox="0 0 64 64"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="3"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  {
+    name === "plumbing" && (
+      <>
+        <path d="M8 12v18M22 7h12M28 7v9" />
+        <path d="M8 16h28a12 12 0 0 1 12 12v5H38v-5a2 2 0 0 0-2-2H8" />
+        <path
+          class="icon-drop text-action"
+          fill="currentColor"
+          stroke="none"
+          d="M43 38c3 4 5 6.5 5 9a5 5 0 0 1-10 0c0-2.5 2-5 5-9z"
+        />
+      </>
+    )
+  }
+  {
+    name === "electricity" && (
+      <>
+        <path
+          class="icon-glow text-action"
+          fill="currentColor"
+          stroke="none"
+          d="M32 15a13 13 0 0 0-8 23.2c1.7 1.4 2.5 2.8 2.5 4.8h11c0-2 .8-3.4 2.5-4.8A13 13 0 0 0 32 15z"
+        />
+        <path d="M32 15a13 13 0 0 0-8 23.2c1.7 1.4 2.5 2.8 2.5 4.8h11c0-2 .8-3.4 2.5-4.8A13 13 0 0 0 32 15z" />
+        <path d="M27 50h10M29 56h6" />
+        <g class="icon-rays text-action">
+          <path d="M32 4v4M12 12l3 3M52 12l-3 3M6 30h4M54 30h4" />
+        </g>
+      </>
+    )
+  }
+  {
+    name === "furniture" && (
+      <>
+        <rect x="11" y="9" width="42" height="46" rx="4" />
+        <path d="M32 9v22M11 31h42M26 19v4M38 19v4M18 55v4M46 55v4" />
+        <g class="icon-drawer text-action">
+          <rect x="16" y="37" width="32" height="12" rx="2" />
+          <path d="M28 43h8" />
+        </g>
+      </>
+    )
+  }
+  {
+    name === "paint" && (
+      <>
+        <rect
+          class="icon-paint text-action"
+          x="14"
+          y="24"
+          width="26"
+          height="22"
+          rx="3"
+          fill="currentColor"
+          stroke="none"
+          opacity="0.3"
+        />
+        <g class="icon-roller">
+          <rect x="10" y="10" width="36" height="14" rx="3" />
+          <path d="M46 17h8v12H30v8" />
+          <rect x="26" y="37" width="8" height="19" rx="2" />
+        </g>
+      </>
+    )
+  }
+</svg>

@@ -1,7 +1,178 @@
 @import "tailwindcss";
 
 @theme {
-	--color-primary: #fe2b06;
-	--color-secondary: #ec6f59;
-	--color-contrast: #e52705;
+	--font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+	/* Marca: azul para la identidad, rojo solo para las acciones */
+	--color-navy: #090d4e;
+	--color-navy-700: #20246b;
+	--color-action: #e52705;
+	--color-action-dark: #b81e02;
+	--color-coral: #ff9582; /* acento legible sobre azul */
+	--color-whatsapp: #25d366;
+
+	/* Neutros con matiz azul */
+	--color-muted: #4d5175;
+	--color-surface: #f5f5fb;
+	--color-line: #e3e4f0;
 }
+
+@layer base {
+	body {
+		@apply bg-white text-navy antialiased;
+	}
+
+	:focus-visible {
+		@apply outline-2 outline-offset-2 outline-action;
+	}
+
+	html:has(dialog[open]) {
+		overflow: hidden;
+	}
+
+	dialog::backdrop {
+		background: rgb(9 13 78 / 0.5);
+		backdrop-filter: blur(4px);
+	}
+}
+
+@layer components {
+	.btn-primary {
+		@apply inline-flex items-center justify-center gap-2 rounded-full bg-action px-6 py-3.5 text-base font-semibold text-white transition-colors duration-200 hover:bg-action-dark;
+	}
+
+	.eyebrow {
+		@apply text-sm font-semibold tracking-wide text-action-dark;
+	}
+
+	.section-title {
+		@apply text-4xl font-bold tracking-[-0.025em] text-balance text-navy sm:text-5xl;
+	}
+
+	.chat-bubble {
+		@apply max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm/5 font-medium;
+	}
+
+	.chat-bubble--user {
+		@apply ml-auto rounded-br-md bg-navy text-white;
+	}
+
+	.chat-bubble--agent {
+		@apply rounded-bl-md bg-surface text-navy;
+	}
+
+	/* Bloque de chat: la respuesta y el "escribiendo" comparten celda, sin saltos de layout */
+	.chat-slot {
+		display: grid;
+	}
+
+	.chat-slot > * {
+		grid-area: 1 / 1;
+	}
+
+	.chat-typing {
+		@apply hidden w-fit items-center gap-1 self-start rounded-2xl rounded-bl-md bg-surface px-3.5 py-3.5;
+	}
+
+	.chat-typing i {
+		@apply block size-1.5 rounded-full bg-muted;
+	}
+
+	/* Iconos: las piezas animadas giran y se escalan sobre su propio centro */
+	.service-icon * {
+		transform-box: fill-box;
+		transform-origin: center;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	/* Aparición al hacer scroll; sin JS el contenido queda visible */
+	.js [data-reveal] {
+		opacity: 0;
+		transform: translateY(1rem);
+		transition:
+			opacity 0.6s ease,
+			transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+		transition-delay: var(--delay, 0ms);
+	}
+
+	.js [data-reveal].is-in {
+		opacity: 1;
+		transform: none;
+	}
+
+	/* Conversación del hero: ciclo de 14 s */
+	.chat-step {
+		animation: 14s ease infinite both;
+	}
+	.chat-step--1 { animation-name: chat-1; }
+	.chat-step--2 { animation-name: chat-2; }
+	.chat-step--3 { animation-name: chat-3; }
+	.chat-step--4 { animation-name: chat-4; }
+	.chat-step--5 { animation-name: chat-5; }
+
+	.chat-typing {
+		display: flex;
+		animation: 14s ease infinite both;
+	}
+	.chat-typing--1 { animation-name: typing-1; }
+	.chat-typing--2 { animation-name: typing-2; }
+
+	.chat-typing i {
+		animation: typing-dot 1s ease-in-out infinite;
+	}
+	.chat-typing i:nth-child(2) { animation-delay: 0.15s; }
+	.chat-typing i:nth-child(3) { animation-delay: 0.3s; }
+
+	.float-pill {
+		animation: float 5s ease-in-out infinite;
+		animation-delay: var(--delay, 0ms);
+	}
+
+	.status-dot {
+		animation: pulse-dot 2s ease-in-out infinite;
+	}
+
+	/* Iconos de servicio: solo se mueven mientras están en pantalla */
+	.is-looping .icon-drop { animation: icon-drop 2.2s ease-in infinite; }
+	.is-looping .icon-rays { animation: icon-rays 2.4s ease-in-out infinite; }
+	.is-looping .icon-glow { animation: icon-glow 2.4s ease-in-out infinite; }
+	.is-looping .icon-drawer { animation: icon-drawer 3s ease-in-out infinite; }
+	.is-looping .icon-roller { animation: icon-roller 2.6s ease-in-out infinite; }
+	.is-looping .icon-paint { animation: icon-paint 2.6s ease-in-out infinite; transform-origin: top; }
+
+	/* Línea de progreso de "Cómo funciona" */
+	.js .step-line {
+		transition: transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s;
+		transform: scaleY(0);
+		transform-origin: top;
+	}
+
+	.js .is-in > .step-line {
+		transform: none;
+	}
+
+	@media (min-width: 64rem) {
+		.js .step-line {
+			transform: scaleX(0);
+			transform-origin: left;
+		}
+	}
+}
+
+@keyframes chat-1 { 0%, 4% { opacity: 0; transform: translateY(8px); } 8%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes chat-2 { 0%, 22% { opacity: 0; transform: translateY(8px); } 26%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes chat-3 { 0%, 34% { opacity: 0; transform: translateY(8px); } 38%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes chat-4 { 0%, 54% { opacity: 0; transform: translateY(8px); } 58%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes chat-5 { 0%, 68% { opacity: 0; transform: translateY(8px) scale(0.97); } 72%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes typing-1 { 0%, 10% { opacity: 0; } 12%, 21% { opacity: 1; } 23%, 100% { opacity: 0; } }
+@keyframes typing-2 { 0%, 40% { opacity: 0; } 42%, 53% { opacity: 1; } 55%, 100% { opacity: 0; } }
+@keyframes typing-dot { 0%, 100% { transform: none; opacity: 0.45; } 50% { transform: translateY(-3px); opacity: 1; } }
+@keyframes float { 0%, 100% { transform: none; } 50% { transform: translateY(-5px); } }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+@keyframes icon-drop { 0% { opacity: 0; transform: translateY(-5px) scale(0.6); } 25% { opacity: 1; transform: none; } 75% { opacity: 1; transform: translateY(7px); } 100% { opacity: 0; transform: translateY(11px); } }
+@keyframes icon-rays { 0%, 100% { opacity: 0.25; transform: scale(0.92); } 50% { opacity: 1; transform: scale(1.04); } }
+@keyframes icon-glow { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.55; } }
+@keyframes icon-drawer { 0%, 100% { transform: none; } 45%, 60% { transform: translateY(4px); } }
+@keyframes icon-roller { 0%, 100% { transform: none; } 50% { transform: translateX(5px); } }
+@keyframes icon-paint { 0%, 100% { transform: scaleY(0.45); } 50% { transform: none; } }

@@ -1,156 +1,92 @@
-<header class="absolute inset-x-0 top-0 z-50">
-  <nav
-    class="flex items-center justify-between p-6 lg:px-8"
-    aria-label="Global"
-  >
-    <div class="flex lg:flex-1">
-      <img
-        class="h-10 w-auto sm:h-12"
-        src="/contactiza.png"
-        alt="icon contactiza"
-      />
-    </div>
-    <div class="flex lg:hidden">
+---
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+import { waLink } from "../lib/whatsapp";
+
+const links = [
+  { href: "#service", label: "Servicios" },
+  { href: "#how", label: "¿Cómo funciona?" },
+  { href: "#social", label: "Sobre nosotros" },
+];
+const quoteUrl = waLink("Hola quiero una cotizacion");
+---
+
+<header class="sticky top-0 z-40">
+  <div class="border-b border-line/70 bg-white/80 backdrop-blur-md">
+    <nav
+      class="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8"
+      aria-label="Global"
+    >
+      <a href="#home" class="rounded-sm">
+        <img class="h-7 w-auto" src="/contactiza.png" alt="Contactiza" width="393" height="57" />
+      </a>
+      <div class="hidden items-center gap-x-9 lg:flex">
+        {
+          links.map(({ href, label }) => (
+            <a href={href} class="text-sm font-semibold text-muted transition-colors hover:text-navy">
+              {label}
+            </a>
+          ))
+        }
+      </div>
+      <a href={quoteUrl} target="_blank" rel="noopener" class="btn-primary hidden px-5 py-2.5 text-sm lg:inline-flex">
+        <WhatsAppIcon class="size-4" />
+        Pide un presupuesto
+      </a>
       <button
         type="button"
-        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-        id="menuToggle"
-        onclick=""
+        id="menuOpen"
+        aria-haspopup="dialog"
+        aria-controls="mobileMenu"
+        class="-mr-2 rounded-lg p-2 text-navy lg:hidden"
       >
-        <span class="sr-only">Open main menu</span>
-        <svg
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          aria-hidden="true"
-          data-slot="icon"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        <span class="sr-only">Abrir menú</span>
+        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
-    </div>
-    <div class="hidden lg:flex lg:gap-x-12 text-center lg:items-center">
-      <a href="#service" class="text-sm/6 font-semibold text-gray-900"
-        >Servicios</a
-      >
-      <a href="#how" class="text-sm/6 font-semibold text-gray-900"
-        >¿Cómo funciona?</a
-      >
-      <a href="#social" class="text-sm/6 font-semibold text-gray-900"
-        >Sobre nosotros</a
-      >
-      <a
-        href="https://wa.me/50767702618?text=Hola%20quiero%20una%20cotizacion"
-        target="_blank"
-        class="rounded-md bg-contrast p-2 text-sm font-semibold text-white shadow-xs hover:bg-secondary hover:scale-105 duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >Pide un presupuesto</a
-      >
-    </div>
-    <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a
-        href="https://wa.me/50767702618?text=Hola%20quiero%20una%20cotizacion"
-        target="_blank"
-        class="text-sm/6 font-semibold text-contrast"
-        >Contáctanos<span aria-hidden="true">&rarr;</span></a
-      >
-    </div>
-  </nav>
+    </nav>
+  </div>
 
-  <!-- Mobile menu, show/hide based on menu open state. -->
-  <div id="mobileMenu" class="lg:hidden hidden" role="dialog" aria-modal="true">
-    <!-- Background backdrop -->
-    <div class="fixed inset-0 z-50 bg-gray-600 opacity-50"></div>
-    <div
-      class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
-    >
+  <dialog id="mobileMenu" aria-label="Menú" class="m-0 ml-auto h-dvh max-h-none w-full max-w-sm bg-white text-navy">
+    <div class="flex h-full flex-col p-6">
       <div class="flex items-center justify-between">
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <div class="w-32">
-            <img src="/contactiza.png" alt="icon contactiza" />
-          </div>
-        </a>
-        <button
-          type="button"
-          class="-m-2.5 rounded-md p-2.5 text-gray-700 menuToggle"
-          id="menuClose"
-          onclick=""
-        >
-          <span class="sr-only">Close menu</span>
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            aria-hidden="true"
-            data-slot="icon"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"></path>
+        <img class="h-7 w-auto" src="/contactiza.png" alt="Contactiza" width="393" height="57" />
+        <button type="button" id="menuClose" class="-mr-2 rounded-lg p-2">
+          <span class="sr-only">Cerrar menú</span>
+          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.75" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
-      <div class="mt-6 flow-root">
-        <div class="-my-6 divide-y divide-gray-500/10 pl-5">
-          <div class="space-y-2 py-6">
-            <a
-              href="#home"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Inicio</a
-            >
-            <a
-              href="#service"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Servicios</a
-            >
-            <a
-              href="#how"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >¿Cómo funciona?</a
-            >
-            <a
-              href="#social"
-              class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-              >Sobre nosotros</a
-            >
-          </div>
-          <div class="py-6">
-            <a
-              href="https://wa.me/50767702618?text=Hola%20quiero%20una%20cotizacion"
-              target="_blank"
-              class="text-sm/6 font-semibold text-contrast"
-              >Contáctanos<span aria-hidden="true">&rarr;</span></a
-            >
-          </div>
-        </div>
+      <div class="mt-8 flex flex-col gap-1">
+        {
+          [{ href: "#home", label: "Inicio" }, ...links].map(({ href, label }) => (
+            <a href={href} class="rounded-xl px-3 py-3 text-lg font-semibold hover:bg-surface">
+              {label}
+            </a>
+          ))
+        }
       </div>
+      <a href={quoteUrl} target="_blank" rel="noopener" class="btn-primary mt-auto">
+        <WhatsAppIcon />
+        Pide un presupuesto
+      </a>
     </div>
-  </div>
+  </dialog>
 </header>
 
 <script>
-  function toggleMenu() {
-    const mobileMenu = document.getElementById("mobileMenu");
-    if (mobileMenu) {
-      mobileMenu.classList.toggle("hidden");
-    }
-  }
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menuToggle");
-    const menuClose = document.getElementById("menuClose");
-    if (menuToggle) {
-      menuToggle.addEventListener("click", toggleMenu);
-    }
-    if (menuClose) {
-      menuClose.addEventListener("click", toggleMenu);
-    }
+  const menu = document.getElementById("mobileMenu") as HTMLDialogElement;
+
+  document.getElementById("menuOpen")?.addEventListener("click", () => menu.showModal());
+  document.getElementById("menuClose")?.addEventListener("click", () => menu.close());
+
+  // Cierra al tocar un enlace o el fondo.
+  menu.addEventListener("click", (event) => {
+    const target = event.target as Element;
+    if (target === menu || target.closest("a")) menu.close();
   });
+
+  // Evita que quede abierto al pasar a escritorio.
+  window.matchMedia("(min-width: 64rem)").addEventListener("change", () => menu.close());
 </script>

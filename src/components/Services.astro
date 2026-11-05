@@ -1,0 +1,55 @@
+---
+import Card from "./Card.astro";
+---
+
+<section id="service" class="mx-auto max-w-7xl px-6 pb-20 lg:px-8 lg:pb-28">
+  <div class="max-w-3xl" data-reveal>
+    <h2 class="eyebrow">Servicios Ofrecidos</h2>
+    <p class="section-title mt-3">
+      ¿Qué puedes pedir en <span class="text-action">Contactiza</span>?
+    </p>
+    <p class="mt-5 text-lg/8 text-pretty text-muted">
+      Nuestros técnicos están disponibles para atender tus necesidades de manera
+      rápida y eficiente, asegurando resultados de calidad en cada trabajo que
+      realizamos.
+    </p>
+  </div>
+  <div class="mt-12 grid gap-5 lg:mt-14 lg:grid-cols-5">
+    <Card
+      class="lg:col-span-3"
+      tone="dark"
+      icon="plumbing"
+      title="Plomería"
+      url="https://wa.me/50767702618?text=Servicio%20de%20plomeria"
+      body="Servicio de plomería disponible 24/7 para atender tus emergencias y solucionar problemas de llaves, lavamanos, inodoros y desagües de manera rápida y efectiva."
+      tags={["24/7", "Llaves", "Lavamanos", "Inodoros", "Desagües"]}
+    />
+    <Card
+      class="lg:col-span-2"
+      delay={80}
+      icon="electricity"
+      title="Electricidad"
+      url="https://wa.me/50767702618?text=Servicio%20de%20electricidad"
+      body="Electricistas certificados y calificados para realizar instalaciones y reparaciones eléctricas con total seguridad y calidad."
+      tags={["Certificados", "Instalaciones", "Reparaciones"]}
+    />
+    <Card
+      class="lg:col-span-2"
+      icon="furniture"
+      title="Muebles"
+      url="https://wa.me/50767702618?text=Servicio%20de%20muebles"
+      body="Diseño y fabricación de muebles personalizados, desde muebles aéreos de cocina hasta centros de entretenimiento para tu hogar, con una red confiable de ebanistas."
+      tags={["A medida", "Cocina", "Entretenimiento"]}
+    />
+    <Card
+      class="lg:col-span-3"
+      tone="tint"
+      delay={80}
+      icon="paint"
+      title="Pintura y más"
+      url="https://wa.me/50767702618?text=Servicio%20de%20Pintura"
+      body="Servicios de pintura, remodelación y decoración para darle a tu hogar el estilo que siempre has querido, con acabados profesionales y duraderos."
+      tags={["Pintura", "Remodelación", "Decoración"]}
+    />
+  </div>
+</section>

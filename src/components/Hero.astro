@@ -1,0 +1,39 @@
+---
+import CallToAction from "./CallToAction.astro";
+import HeroChat from "./HeroChat.astro";
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+import { waLink } from "../lib/whatsapp";
+---
+
+<section id="home" class="relative overflow-clip">
+  <div
+    class="mx-auto grid max-w-7xl items-center gap-12 px-6 pt-12 pb-20 sm:pt-16 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:px-8 lg:pt-20 lg:pb-28"
+  >
+    <div data-reveal>
+      <h1
+        class="text-5xl leading-[1.06] font-bold tracking-[-0.03em] text-balance text-navy sm:text-6xl lg:text-[4.25rem]"
+      >
+        <span class="text-action">Pide</span> +200 servicios para hacerte la vida
+        más fácil
+      </h1>
+      <p class="mt-6 max-w-xl text-lg/8 text-pretty text-muted sm:text-xl/8">
+        La solución rápida y confiable para ayudarte con todas las tareas del
+        hogar.
+      </p>
+      <a
+        href={waLink("Hola quiero una cotización")}
+        target="_blank"
+        rel="noopener"
+        class="btn-primary mt-8 w-full sm:w-auto"
+      >
+        <WhatsAppIcon />
+        Pide un presupuesto
+      </a>
+      <p class="mt-9 mb-3 text-sm font-semibold text-muted">O dinos qué quieres hacer:</p>
+      <CallToAction />
+    </div>
+    <div data-reveal style="--delay: 150ms">
+      <HeroChat />
+    </div>
+  </div>
+</section>

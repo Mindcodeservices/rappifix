@@ -1,30 +1,26 @@
-<footer class="relative">
-  <div
-    class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-    aria-hidden="true"
-  >
-    <div
-      class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#fe2b06] to-[#ec6f59] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-      style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-    >
-    </div>
-  </div>
-  <div class="mx-auto max-w-7xl overflow-hidden px-6 py-10 sm:py-24 lg:px-8">
-    <nav
-      class="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6"
-      aria-label="Footer"
-    >
-      <a href="#home" class="text-gray-600 hover:text-primary">Inicio</a>
-      <a href="#service" class="text-gray-600 hover:text-primary">Servicios</a>
-      <a href="#how" class="text-gray-600 hover:text-primary">Como funciona</a>
-      <a href="#social" class="text-gray-600 hover:text-primary"
-        >Sobre nosotros</a
-      >
+---
+const links = [
+  { href: "#home", label: "Inicio" },
+  { href: "#service", label: "Servicios" },
+  { href: "#how", label: "Cómo funciona" },
+  { href: "#social", label: "Sobre nosotros" },
+];
+---
+
+<footer class="border-t border-line">
+  <div class="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 pt-10 pb-24 lg:flex-row lg:justify-between lg:px-8">
+    <img class="h-6 w-auto" src="/contactiza.png" alt="Contactiza" width="393" height="57" loading="lazy" />
+    <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-medium" aria-label="Pie de página">
+      {
+        links.map(({ href, label }) => (
+          <a href={href} class="text-muted transition-colors hover:text-navy">
+            {label}
+          </a>
+        ))
+      }
     </nav>
-    <p class="mt-10 text-center text-sm/6 text-gray-600">
-      &copy; 2025 <span class="text-contrast hover:text-primary"
-        >Contactiza</span
-      >, Inc. All rights reserved.
+    <p class="text-center text-sm text-muted">
+      &copy; {new Date().getFullYear()} Contactiza, Inc. Todos los derechos reservados.
     </p>
   </div>
 </footer>
