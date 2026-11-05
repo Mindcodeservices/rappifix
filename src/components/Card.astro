@@ -1,40 +1,66 @@
 ---
+import ServiceIcon, { type ServiceIconName } from "./ServiceIcon.astro";
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+
 interface Props {
   title: string;
   body: string;
-  info: string;
   url: string;
-  icon:object;
+  icon: ServiceIconName;
+  tags: string[];
+  tone?: "light" | "dark" | "tint";
+  class?: string;
+  delay?: number;
 }
-import LottieAnimation from "./LottieAnimation";
-import iconTools from "../../public/animations/icontools.json";
-const { title, body, info, url,icon } = Astro.props;
+
+const { title, body, url, icon, tags, tone = "light", class: className, delay = 0 } = Astro.props;
+const dark = tone === "dark";
 ---
 
-<div
-  class="relative pl-16 hover:scale-105 duration-200 flex flex-col justify-evenly"
+<a
+  href={url}
+  target="_blank"
+  rel="noopener"
+  data-reveal
+  data-loop
+  style={`--delay: ${delay}ms`}
+  class:list={[
+    "group flex flex-col rounded-3xl border p-7 sm:p-8 transition-[border-color,box-shadow] duration-200 hover:shadow-xl hover:shadow-navy/10",
+    {
+      "border-navy bg-navy text-white": dark,
+      "border-line bg-white hover:border-navy/40": tone === "light",
+      "border-transparent bg-surface hover:border-navy/30": tone === "tint",
+    },
+    className,
+  ]}
 >
-  <div class="text-base/7 font-semibold text-gray-900">
-    <div
-      class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg"
-    >
-      <LottieAnimation
-        animationData={icon}
-        height="50px"
-        width="50px"
-        client:visible
-      />
-    </div>
-    {title}
-  </div>
-  <div class="mt-2 text-base/7 text-gray-600">{body}</div>
-  <div class="h-2/5 flex items-end">
-    <a
-      href={url}
-      target="_blank"
-      class="rounded bg-contrast px-2 py-1 text-sm font-semibold text-white shadow-xs hover:bg-primary hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-    >
-      {info}
-    </a>
-  </div>
-</div>
+  <ServiceIcon name={icon} />
+  <h3 class="mt-6 text-2xl font-bold tracking-tight">{title}</h3>
+  <p class:list={["mt-3 text-base/7 text-pretty", dark ? "text-white/80" : "text-muted"]}>
+    {body}
+  </p>
+  <ul class="mt-5 mb-7 flex flex-wrap gap-2">
+    {
+      tags.map((tag) => (
+        <li
+          class:list={[
+            "rounded-full border px-3 py-1 text-xs font-semibold",
+            dark ? "border-white/25 text-white" : "border-line bg-white text-navy",
+          ]}
+        >
+          {tag}
+        </li>
+      ))
+    }
+  </ul>
+  <span
+    class:list={[
+      "mt-auto inline-flex items-center gap-2 text-sm font-bold",
+      dark ? "text-coral" : "text-action-dark",
+    ]}
+  >
+    <WhatsAppIcon class="size-4" />
+    Pide por WhatsApp
+    <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+  </span>
+</a>

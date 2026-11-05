@@ -1,0 +1,14 @@
+---
+import WhatsAppIcon from "./WhatsAppIcon.astro";
+import { waLink } from "../lib/whatsapp";
+---
+
+<a
+  href={waLink("Hola quiero una cotización")}
+  target="_blank"
+  rel="noopener"
+  aria-label="Abrir chat de WhatsApp"
+  class="fixed right-5 bottom-5 z-30 flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg shadow-navy/25 transition-transform duration-200 hover:scale-105"
+>
+  <WhatsAppIcon class="size-7" />
+</a>

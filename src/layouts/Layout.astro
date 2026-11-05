@@ -1,4 +1,5 @@
 ---
+import "@fontsource-variable/plus-jakarta-sans";
 import "../styles/global.css";
 
 interface Props {
@@ -9,16 +10,18 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth scroll-pt-24">
 	<head>
 		<meta charset="UTF-8" />
+		<script is:inline>document.documentElement.classList.add("js");</script>
 		<meta
 			name="description"
 			content="Contactiza - Soluciones rápidas y confiables para tareas del hogar. Desde plomería hasta reparaciones eléctricas, estamos aquí para ayudarte."
 		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#090d4e" />
 		<!-- Título optimizado con palabras clave -->
-		<title>Contactiza | Soluciones rápidas para tus tareas del hogar</title>
+		<title>{title}</title>
 		<!-- Open Graph meta tags para redes sociales -->
 		<meta
 			property="og:title"
@@ -30,7 +33,7 @@ const { title } = Astro.props;
 		/>
 		<meta
 			property="og:image"
-			content="https://rappifix.netlify.app/contactiza.png?v=2"
+			content="https://contactiza.com/contactiza.png?v=2"
 		/>
 		<meta property="og:url" content="https://contactiza.com" />
 		<meta property="og:type" content="website" />
@@ -46,10 +49,10 @@ const { title } = Astro.props;
 		/>
 		<meta
 			name="twitter:image"
-			content="https://rappifix.netlify.app/contactiza.png?v=2"
+			content="https://contactiza.com/contactiza.png?v=2"
 		/>
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="/contactiza.png" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://contactiza.com" />
 		<!-- Meta Robots -->
@@ -66,7 +69,7 @@ const { title } = Astro.props;
 				"@type": "Organization",
 				"name": "Contactiza",
 				"url": "https://contactiza.com",
-				"logo": "https://rappifix.netlify.app/contactiza.png",
+				"logo": "https://contactiza.com/contactiza.png",
 				"contactPoint": {
 					"@type": "ContactPoint",
 					"telephone": "+507-6770-2618",
@@ -83,5 +86,23 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<slot />
+		<script>
+			// data-reveal: aparece una sola vez. data-loop: anima solo mientras está en pantalla.
+			const observer = new IntersectionObserver(
+				(entries) => {
+					for (const { target, isIntersecting } of entries) {
+						const loops = target.hasAttribute("data-loop");
+						if (isIntersecting) target.classList.add("is-in");
+						if (loops) target.classList.toggle("is-looping", isIntersecting);
+						else if (isIntersecting) observer.unobserve(target);
+					}
+				},
+				{ threshold: 0.15 },
+			);
+
+			document
+				.querySelectorAll("[data-reveal], [data-loop]")
+				.forEach((el) => observer.observe(el));
+		</script>
 	</body>
 </html>
